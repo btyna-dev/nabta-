@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nabta 🌱</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #faf7ff;
+      color: #303047;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: white;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      font-size: 28px;
+    }
+
+    .login {
+      border: none;
+      background: #7868e6;
+      color: white;
+      padding: 11px 22px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #fff7f5, #f3efff);
+    }
+
+    .plant {
+      font-size: 80px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 58px;
+      margin-bottom: 15px;
+    }
+
+    .subtitle {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .description {
+      max-width: 600px;
+      margin: auto;
+      line-height: 1.8;
+      color: #66667a;
+    }
+
+    .start {
+      margin-top: 30px;
+      border: none;
+      background: #7868e6;
+      color: white;
+      padding: 15px 35px;
+      border-radius: 30px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .start:hover {
+      transform: translateY(-3px);
+    }
+
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 8%;
+      background: white;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: 220px;
+      padding: 25px;
+      text-align: center;
+      border-radius: 20px;
+      background: #faf9ff;
+    }
+
+    .card-icon {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: #777;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">Nabta <span>🌱</span></div>
+    <button class="login">تسجيل الدخول</button>
+  </nav>
+
+  <section class="hero">
+
+    <div>
+      <div class="plant">🌱</div>
+
+      <h1>Nabta</h1>
+
+      <p class="subtitle">
+        ازرعي هدفك... وشوفيه يكبر 🤍
+      </p>
+
+      <p class="description">
+        منصة ذكية تساعدك على تحويل أهدافك التعليمية
+        إلى خطوات صغيرة ومنظمة، مع خطة تناسب مستواك ووقتك.
+      </p>
+
+      <button class="start" onclick="startJourney()">
+        ابدئي رحلتك ✨
+      </button>
+    </div>
+
+  </section>
+
+  <section class="features">
+
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <h3>خطة مخصصة</h3>
+      <p>خطة تعلم تناسب هدفك ومستواك.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📈</div>
+      <h3>تابعي تقدمك</h3>
+      <p>شاهدي تطورك خطوة بخطوة.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🤖</div>
+      <h3>مساعد ذكي</h3>
+      <p>اسألي واحصلي على شرح يناسبك.</p>
+    </div>
+
+  </section>
+
+  <script>
+    function startJourney() {
+      alert("🌱 أهلاً بكِ في Nabta! رحلتك تبدأ بخطوة صغيرة.");
+    }
+  </script>
+
+</body>
+</html>
