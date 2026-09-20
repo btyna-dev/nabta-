@@ -149,10 +149,10 @@
         منصة ذكية تساعدك على تحويل أهدافك التعليمية
         إلى خطوات صغيرة ومنظمة، مع خطة تناسب مستواك ووقتك.
       </p>
-
-      <button class="start" 
-        ابدئي رحلتك ✨
-      </button>
+<button class="start" onclick="document.querySelector('.features').scrollIntoView({ behavior: 'smooth' })">
+  ابدئي رحلتك ✨
+</button>
+    
     </div>
 
   </section>
@@ -178,7 +178,16 @@
     </div>
 
   </section>
+<script>
+document.querySelector('.start').addEventListener('click', function() {
+  document.querySelector('.features').scrollIntoView({
+    behavior: 'smooth'
+  });
+});
+</script>
 
+</body>
+</html>
 
 
 </body>
