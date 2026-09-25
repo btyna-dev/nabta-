@@ -135,13 +135,13 @@
 
 <script>
 function makePlan() {
-
   const subject = document.getElementById("subject").value.trim();
   const hours = document.getElementById("hours").value;
+  const level = document.getElementById("level").value;
   const goal = document.getElementById("goal").value.trim();
   const result = document.getElementById("result");
 
-  if (!subject || !hours || !goal) {
+  if (!subject || !hours || !level || !goal) {
     result.style.display = "block";
     result.innerHTML = "🌱 كمّلي البيانات أولاً باش نبطة تقدر تنشئ خطتك.";
     return;
@@ -151,54 +151,71 @@ function makePlan() {
 
   if (subject.includes("برمج")) {
 
-    plan = `
-      <p>💻 ادرسي مفهوم برمجي جديد لمدة 30 دقيقة.</p>
-      <p>⌨️ طبّقي مثالًا برمجيًا بنفسك لمدة 30 دقيقة.</p>
-      <p>☕ خدي استراحة قصيرة.</p>
-      <p>🚀 أنشئي تمرينًا صغيرًا باستخدام اللي تعلمتيه.</p>
-    `;
+    if (level === "beginner") {
+      plan = `
+        <p>🌱 تعلّمي مفهوم برمجي بسيط.</p>
+        <p>💻 طبقي مثالًا صغيرًا بنفسك.</p>
+        <p>☕ خدي استراحة قصيرة.</p>
+        <p>✨ حلي تمرينًا سهلًا.</p>
+      `;
 
-  } else if (subject.includes("رياض")) {
+    } else if (level === "intermediate") {
+      plan = `
+        <p>🌿 راجعي مفهومًا برمجيًا.</p>
+        <p>💻 طبقي تمرينًا متوسطًا.</p>
+        <p>☕ خدي استراحة قصيرة.</p>
+        <p>🚀 حاولي حل تمرين بدون مساعدة.</p>
+      `;
 
-    plan = `
-      <p>📐 راجعي القاعدة الأساسية لمدة 20 دقيقة.</p>
-      <p>✏️ حلي 3 تمارين سهلة.</p>
-      <p>☕ خدي استراحة قصيرة.</p>
-      <p>🧠 حلي تمرينًا أصعب وراجعي أخطاءك.</p>
-    `;
-
-  } else if (
-    subject.includes("إنج") ||
-    subject.includes("انج") ||
-    subject.toLowerCase().includes("english")
-  ) {
-
-    plan = `
-      <p>📚 احفظي 10 كلمات إنجليزية جديدة.</p>
-      <p>📖 اقرئي نصًا قصيرًا باللغة الإنجليزية.</p>
-      <p>☕ خدي استراحة قصيرة.</p>
-      <p>✍️ اكتبي 5 جمل باستخدام الكلمات الجديدة.</p>
-    `;
+    } else {
+      plan = `
+        <p>🌳 راجعي أهم المفاهيم.</p>
+        <p>🔥 اشتغلي على تمرين متقدم.</p>
+        <p>☕ خدي استراحة قصيرة.</p>
+        <p>🚀 طبقي ما تعلمتيه في مشروع صغير.</p>
+      `;
+    }
 
   } else {
 
-    plan = `
-      <p>📖 ادرسي المفهوم الأساسي لمدة 30 دقيقة.</p>
-      <p>📝 طبّقي اللي تعلمتيه لمدة 30 دقيقة.</p>
-      <p>☕ خدي استراحة قصيرة.</p>
-      <p>🔄 راجعي اللي تعلمتيه واكتبي أهم النقاط.</p>
-    `;
+    if (level === "beginner") {
+      plan = `
+        <p>🌱 ادرسي المفهوم الأساسي.</p>
+        <p>📝 طبقي مثالًا بسيطًا.</p>
+        <p>☕ خدي استراحة قصيرة.</p>
+        <p>✨ راجعي أهم النقاط.</p>
+      `;
+
+    } else if (level === "intermediate") {
+      plan = `
+        <p>🌿 راجعي المفاهيم الأساسية.</p>
+        <p>📝 طبقي تمرينًا متوسطًا.</p>
+        <p>☕ خدي استراحة قصيرة.</p>
+        <p>🚀 طبقي اللي تعلمتيه بدون مساعدة.</p>
+      `;
+
+    } else {
+      plan = `
+        <p>🌳 راجعي المفاهيم المهمة.</p>
+        <p>🔥 اشتغلي على مهمة متقدمة.</p>
+        <p>☕ خدي استراحة قصيرة.</p>
+        <p>🚀 طبقي ما تعلمتيه في مشروع صغير.</p>
+      `;
+    }
   }
+
+  const levelName =
+    level === "beginner" ? "مبتدئة 🌱" :
+    level === "intermediate" ? "متوسطة 🌿" :
+    "متقدمة 🌳";
 
   result.style.display = "block";
 
   result.innerHTML = `
     <h2>خطتك جاهزة 🎯</h2>
-
     <p>📚 المادة: <strong>${subject}</strong></p>
-
     <p>⏰ وقت الدراسة: <strong>${hours}</strong></p>
-
+    <p>📈 المستوى: <strong>${levelName}</strong></p>
     <p>🎯 هدفك: <strong>${goal}</strong></p>
 
     <hr>
@@ -208,6 +225,7 @@ function makePlan() {
     ${plan}
   `;
 }
+  
 </script>
 
 </body>
