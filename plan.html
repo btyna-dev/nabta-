@@ -135,6 +135,30 @@
   text-decoration: line-through;
   opacity: 0.6;
 }
+.progress {
+  margin-top: 20px;
+  padding: 12px;
+  background: white;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e8e4f5;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #7c63d9;
+  transition: 0.3s;
+}
     
   </style>
 </head>
@@ -338,7 +362,30 @@ function makePlan() {
 <div id="tasks">
   ${plan.replace(/<p>/g, '<label class="task"><input type="checkbox"> ').replace(/<\/p>/g, '</label>')}
 </div>
+<div class="progress">
+  <div>تقدمك اليوم: <span id="progressText">0%</span> 📊</div>
+
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+</div>
+
   `;
+  const checkboxes = document.querySelectorAll(".task input");
+  const progressText = document.getElementById("progressText");
+  const progressFill = document.getElementById("progressFill");
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      const completed = document.querySelectorAll(".task input:checked").length;
+      const total = checkboxes.length;
+      const percent = Math.round((completed / total) * 100);
+
+      progressText.textContent = percent + "%";
+      progressFill.style.width = percent + "%";
+    });
+  });
+  
 }
 </script>
 
