@@ -377,6 +377,13 @@ function makePlan() {
 
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener("change", () => {
+
+     localStorage.setItem(
+  "nabtaProgress",
+  JSON.stringify(
+    Array.from(checkboxes).map((checkbox) => checkbox.checked)
+  )
+); 
       const completed = document.querySelectorAll(".task input:checked").length;
       const total = checkboxes.length;
       const percent = Math.round((completed / total) * 100);
@@ -385,8 +392,24 @@ function makePlan() {
       progressFill.style.width = percent + "%";
     });
   });
-  
+const savedProgress = JSON.parse(
+  localStorage.getItem("nabtaProgress")
+);
+
+if (savedProgress) {
+  checkboxes.forEach((checkbox, index) => {
+    checkbox.checked = savedProgress[index] || false;
+  });
+
+  const completed = document.querySelectorAll(".task input:checked").length;
+  const total = checkboxes.length;
+  const percent = Math.round((completed / total) * 100);
+
+  progressText.textContent = percent + "%";
+  progressFill.style.width = percent + "%";
 }
+  
+
 </script>
 
 </body>
