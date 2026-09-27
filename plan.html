@@ -415,7 +415,23 @@ if (savedProgress) {
 }
 function resetProgress() {
   localStorage.removeItem("nabtaProgress");
-  location.reload();
+
+  const checkboxes = document.querySelectorAll(".task input");
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+
+  const progressText = document.getElementById("progressText");
+  const progressFill = document.getElementById("progressFill");
+
+  if (progressText) {
+    progressText.textContent = "0%";
+  }
+
+  if (progressFill) {
+    progressFill.style.width = "0%";
+  }
 }
 
   
