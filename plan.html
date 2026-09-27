@@ -413,6 +413,9 @@ if (savedProgress) {
   progressText.textContent = percent + "%";
   progressFill.style.width = percent + "%";
 }
+  
+}
+   
 function resetProgress() {
   localStorage.removeItem("nabtaProgress");
 
@@ -432,9 +435,9 @@ function resetProgress() {
   if (progressFill) {
     progressFill.style.width = "0%";
   }
+
 }
-  
-}
+
   
 
 </script>
