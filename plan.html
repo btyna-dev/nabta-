@@ -371,6 +371,9 @@ function makePlan() {
     <div class="progress-fill" id="progressFill"></div>
   </div>
 </div>
+<button onclick="resetProgress()" class="reset-btn">
+  🧹 مسح التقدم
+</button>
 
   `;
   const checkboxes = document.querySelectorAll(".task input");
@@ -410,7 +413,12 @@ if (savedProgress) {
   progressText.textContent = percent + "%";
   progressFill.style.width = percent + "%";
 }
+function resetProgress() {
+  localStorage.removeItem("nabtaProgress");
+  location.reload();
+}
 
+  
 }
 
 </script>
